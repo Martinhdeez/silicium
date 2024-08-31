@@ -11,7 +11,7 @@ require_once("../../includes/functions.php");
 </head>
 <body>
     <div>
-        <form id="loginForm" action="" method="post" class="form">
+        <form id="loginForm" action="../../controllers/id/loginController.php" method="post" class="form">
             <h2>User Login</h2>
             <?php
                 session_start();
@@ -19,7 +19,7 @@ require_once("../../includes/functions.php");
             ?>
             <div>
                 <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Username" name="username" value="" required>
+                <input type="text" id="username" placeholder="Username" name="username" value="<?php echo isset($_SESSION['form_data']['username']) ? htmlspecialchars($_SESSION['form_data']['username']) : ''; ?>" required>
             </div>
             <div>
                 <label for="password">Password</label>

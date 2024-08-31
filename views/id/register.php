@@ -10,7 +10,7 @@ session_start();
     <title>Register</title>
 </head>
      <div>
-        <form action="../controllers/registerController.php" method="post">
+        <form action="../../controllers/id/registerController.php" method="post">
             <h2>User Registration</h2>
             <?php success(); ?>
             <div>

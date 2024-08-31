@@ -36,7 +36,7 @@ if (isset($_POST['register_submit'])) {
                 unset($_SESSION['form_data']);
                 // Redirigir al usuario a la página de inicio de sesión con un mensaje de éxito
                 $_SESSION['success'] = "¡Registro exitoso! Por favor, inicia sesión.";
-                header("Location: ../views/login.php?registration=success");
+                header("Location: ../../views/id/login.php?registration=success");
                 exit();
             } else {
                 // Almacenar el mensaje de error en la sesión
@@ -49,7 +49,7 @@ if (isset($_POST['register_submit'])) {
         $_SESSION['error'] = "Error al conectar con la base de datos."; // Mensaje de error si la conexión falla
     }
 
-    header("Location: ../views/register.php"); // Redirigir de vuelta a la página de registro para mostrar el mensaje
+    header("Location: ../../views/id/register.php"); // Redirigir de vuelta a la página de registro para mostrar el mensaje
     exit();
 }
 ?>
