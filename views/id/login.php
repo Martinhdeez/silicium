@@ -9,12 +9,12 @@ require_once("../../layouts/id_header.php");
                 session_start();
                 success();
             ?>
-            <div >
+            <div id="menu">
                 <label for="username"><img id="usuario" src="../../public/img/perfil.png" alt=""></label>
                 <input type="text" id="username" placeholder="Username" name="username" value="<?php echo isset($_SESSION['form_data']['username']) ? htmlspecialchars($_SESSION['form_data']['username']) : ''; ?>" required>
             </div>
             <div>
-                <label for="password">Password</label>
+                <label for="password"><img id="cerradura" src="../../public/img/cerradura.png" alt=""></label>
                 <input type="password" id="password" placeholder="Password" name="password" required>
             </div>
             <button id="button" type="submit" name="login_submit">Login</button>

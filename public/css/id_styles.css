@@ -10,21 +10,31 @@
     background-size: cover;
     background-position: center center;
     height: 100vh;
+    display: flex;
+}
+
+#menu{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #usuario{
-    height: 10%;
-    text-align: center;
-    display: inline-flex;
+    height: 40px;
+}
+
+#cerradura{
+    margin-top: 5px;
+    height: 40px;
 }
 
 .form{
-    width: auto;
-    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: auto;
 }
 
 form h2{
@@ -44,4 +54,5 @@ div label{
 #button{
     padding: 15px;
     border-radius: 20px;
+    margin-top: 10px;
 }
