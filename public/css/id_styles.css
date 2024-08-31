@@ -57,10 +57,27 @@ div label{
 
 div div input{
     border-bottom: 1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 5px;
+}
+
+div div input:focus{
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+div form a{
+    margin-top: 15px;
+    margin-left: auto;
 }
 
 #button{
     padding: 15px;
-    border-radius: 20px;
+    background-color: orange;
     margin-top: 10px;
+    width: 100%;
+    box-shadow: 1px 1px rgba(211, 211, 211, 0.75);
 }
