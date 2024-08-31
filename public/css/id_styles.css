@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+#background{
+    background: url(../../public/img/fondo.jpg);
+}
+
 .form{
     width: auto;
     height: 90vh;
