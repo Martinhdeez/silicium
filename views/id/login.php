@@ -2,8 +2,6 @@
 require_once("../../includes/functions.php");
 require_once("../../layouts/id_header.php");
 ?>
-
-<body>
     <div id="background">
         <form id="loginForm" action="../../controllers/id/loginController.php" method="post" class="form">
             <h2>User Login</h2>
