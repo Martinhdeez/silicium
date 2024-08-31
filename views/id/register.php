@@ -1,6 +1,6 @@
 <?php
 require_once("../../includes/functions.php");
-require_once("../../layouts/header.php");
+require_once("../../layouts/id_header.php");
 session_start();
 ?>
 
