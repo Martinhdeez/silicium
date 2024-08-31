@@ -1,14 +1,8 @@
 <?php
 require_once("../../includes/functions.php");
+require_once("../../layouts/header.php");
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silicium</title>
-    <link rel="stylesheet" href="../../public/css/id_styles.css">
-</head>
+
 <body>
     <div id="background">
         <form id="loginForm" action="../../controllers/id/loginController.php" method="post" class="form">
