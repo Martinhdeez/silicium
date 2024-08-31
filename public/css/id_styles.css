@@ -4,10 +4,24 @@
 }
 
 .form{
-    border: 1px solid black;
     width: auto;
-    height: 20vh;
-    display: block;
-    text-align: center;
-    
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: red;
+    border-radius: 15px;
+    box-shadow: 2px 2px;
+    padding: 10px;
+}
+
+div label{
+    margin-right: 10px;
+    font-family: 'Times New Roman', Times, serif;
 }
