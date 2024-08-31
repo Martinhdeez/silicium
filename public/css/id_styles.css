@@ -1,10 +1,21 @@
 *{
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
 
 #background{
     background: url(../../public/img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+}
+
+#usuario{
+    height: 10%;
+    text-align: center;
+    display: inline-flex;
 }
 
 .form{
@@ -28,4 +39,9 @@ form h2{
 div label{
     margin-right: 10px;
     font-family: 'Times New Roman', Times, serif;
+}
+
+#button{
+    padding: 15px;
+    border-radius: 20px;
 }
