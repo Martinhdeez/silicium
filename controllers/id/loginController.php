@@ -33,7 +33,7 @@ if (isset($_POST['login_submit'])) {
             $_SESSION['user_id'] = $user->id;
             $_SESSION['username'] = $user->username;
             // Redirigir al usuario a la página de inicio
-            header("Location: ../index.php");
+            header("Location: ../../views/index.php");
             exit();
         } else {
             // Almacenar el mensaje de error en la sesión
@@ -43,9 +43,9 @@ if (isset($_POST['login_submit'])) {
         $_SESSION['error'] = "Failed to connect to the database.";
     }
     // Redirigir de vuelta a la página de login para mostrar el mensaje de error
-    header("Location: ../views/login.php");
+    header("Location: ../../views/id/login.php");
     exit();
 } else {
-    header("Location: ../views/login.php");
+    header("Location: ../../views/id/login.php");
     exit();
 }
