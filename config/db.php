@@ -4,11 +4,12 @@ class Db{
     private $servername= "localhost";
     private $username= "root";
     private $password= "";
-    private $dbname= "project_manager_db";
+    private $dbname= "sicilium";
     private $conn;
 
     //método para establecer la base de datos
     public function connect() {
+
         $this->conn = null;
 
         try {
@@ -16,6 +17,7 @@ class Db{
             $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
             // Establecer el modo de error de PDO para que lance excepciones
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
         } catch(PDOException $e) {
             // Si ocurre un error, captura la excepción y muestra un mensaje de error
             echo 'Connection Error: ' . $e->getMessage();
