@@ -1,14 +1,9 @@
 <?php
 require_once("../../includes/functions.php");
+require_once("../../layouts/header.php");
 session_start();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
+
      <div>
         <form action="../../controllers/id/registerController.php" method="post">
             <h2>User Registration</h2>
