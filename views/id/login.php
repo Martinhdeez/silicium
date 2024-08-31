@@ -1,9 +1,17 @@
 <?php
-require_once("../../layouts/header.php");
 require_once("../../includes/functions.php");
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silicium</title>
+    <link rel="stylesheet" href="../../public/css/id_styles.css">
+</head>
+<body>
     <div>
-        <form action="" method="post">
+        <form id="loginForm" action="" method="post" class="form">
             <h2>User Login</h2>
             <?php
                 session_start();
