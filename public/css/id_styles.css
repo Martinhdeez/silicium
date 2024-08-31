@@ -21,11 +21,11 @@
 }
 
 #usuario{
-    height: 40px;
+    height: 25px;
 }
 
 #cerradura{
-    height: 40px;
+    height: 25px;
     margin-top: 10px;
 }
 
@@ -72,6 +72,10 @@ div div input:focus{
 div form a{
     margin-top: 15px;
     margin-left: auto;
+}
+
+#block{
+    display: inline-flex;
 }
 
 #button{
