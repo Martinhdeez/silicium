@@ -1,44 +1,66 @@
 <?php
+require_once "../../config/db.php";
 
 class NotesController {
-        
-    private $pdo;
+    
+    private $db;
 
-    public function __construct($pdo){
-        $this->pdo = $pdo;
+    public function __construct($db){
+        $this->db = $db;
     }
 
     public function getAllNotes($user_id){
-        $stmt = $this->pdo->prepare("SELECT * FROM notes WHERE user_id = ?");
-        $stmt->execute([$user_id]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM notes WHERE user_id = ?");
+            $stmt->execute([$user_id]);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            return ['error' => $e->getMessage()];
+        }
     }
 
     public function getNote($user_id, $note_id){
-        $stmt = $this->pdo->prepare("SELECT * FROM notes WHERE user_id = ? AND id = ?");
-        $stmt->execute([$user_id, $note_id]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM notes WHERE user_id = ? AND id = ?");
+            $stmt->execute([$user_id, $note_id]);
+            return $stmt->fetch(PDO::FETCH_ASSOC); // Para un único registro
+            
+        } catch (PDOException $e) {
+            return ['error' => $e->getMessage()];
+        }
     }
 
     public function createNote($user_id, $data){
-        $stmt = $this->pdo->prepare("INSERT INTO notes(title, note) VALUES(?, ?) WHERE user_id = ?");
-        if ($stmt->execute([$data['title'], $data['note'], $user_id])) {
-            return ['id' => $this->pdo->lastInsertId(), 'title' => $data['title'], 'note' => $data['note']];
+        try {
+            $stmt = $this->db->prepare("INSERT INTO notes(user_id, title, note) VALUES(?, ?, ?)");
+            if ($stmt->execute([$user_id, $data['title'], $data['note']])) {
+                return ['id' => $this->db->lastInsertId(), 'title' => $data['title'], 'note' => $data['note']];
+            }
+            return null;
+        } catch (PDOException $e) {
+            return ['error' => $e->getMessage()];
         }
-        return null;
     }
 
     public function updateNote($user_id, $note_id, $data){
-        $stmt = $this->pdo->prepare("UPDATE notes SET title = ?, note = ? WHERE user_id = ? AND id = ?");
-        if ($stmt->execute([$data['title'], $data['note'], $user_id, $note_id])){
-            return ['id'=>$note_id, 'title' => $data['title'], 'note' => $data['note']];
+        try {
+            $stmt = $this->db->prepare("UPDATE notes SET title = ?, note = ? WHERE user_id = ? AND id = ?");
+            if ($stmt->execute([$data['title'], $data['note'], $user_id, $note_id])){
+                return ['id'=>$note_id, 'title' => $data['title'], 'note' => $data['note']];
+            }
+            return null;
+        } catch (PDOException $e) {
+            return ['error' => $e->getMessage()];
         }
-        return null;
     }
 
     public function deleteNote($user_id, $note_id){
-        $stmt = $this->pdo->prepare("DELETE FROM notes WHERE user_id = ? AND id = ?");
-        return $stmt->execute([$user_id, $note_id]);
+        try {
+            $stmt = $this->db->prepare("DELETE FROM notes WHERE user_id = ? AND id = ?");
+            return $stmt->execute([$user_id, $note_id]);
+        } catch (PDOException $e) {
+            return ['error' => $e->getMessage()];
+        }
     }
-
 }
