@@ -1,9 +1,13 @@
-# .htaccess
-
 RewriteEngine On
 RewriteBase /
 
-# Redirigir todas las solicitudes a router.php
+# Excepción para las rutas de la API
+RewriteCond %{REQUEST_URI} ^/controllers/api/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /controllers/api/router.php [QSA,L]
+RewriteRule ^controllers/api/(.*)$ /controllers/api/router.php [QSA,L]
+
+# Rutas normales manejadas por index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /views/index.php [QSA,L]
