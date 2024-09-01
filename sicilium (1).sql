@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 01-09-2024 a las 00:56:17
+-- Tiempo de generación: 01-09-2024 a las 20:20:04
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -34,6 +34,13 @@ CREATE TABLE `notes` (
   `note` varchar(9000) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `notes`
+--
+
+INSERT INTO `notes` (`id`, `user_id`, `title`, `note`, `created_at`) VALUES
+(1, 3, 'nota', 'esto es una nota', '2024-09-01 18:19:38');
 
 -- --------------------------------------------------------
 
@@ -83,7 +90,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
