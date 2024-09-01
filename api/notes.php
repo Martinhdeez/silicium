@@ -16,7 +16,12 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Obtener el user_id de la sesión, ya que el usuario está autenticado
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['user_id'] ?? $_POST['user_id'] ?? $_GET['user_id'] ?? null;
+
+if (!$user_id) {
+    echo json_encode(['error' => 'User ID is required']);
+    exit;
+}
 
 // Inicializar la base de datos y el controlador
 $db = new Db();
