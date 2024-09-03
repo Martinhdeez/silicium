@@ -1,7 +1,8 @@
 <?php
-require_once "../layouts/main_header.php";
+
 require_once "../auth/auth.php";
 require_once "../includes/api_functions.php";
+
  
 
 $notes = getNotes(); 
@@ -10,6 +11,7 @@ $selectedNote = null;
 if (isset($_GET["id"])) {
     $selectedNote = getNote($_GET["id"]);
 }
+require_once "../layouts/main_header.php";
 ?>
 
 <!--BARRA LATERAL-->

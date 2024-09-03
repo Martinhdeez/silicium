@@ -16,13 +16,7 @@
     })
     .then(response => response.json())
     .then(result => {
-        if (result.success) {
-            alert('Note created successfully');
-            // Opcional: Recargar la página para ver la nueva nota
-            location.reload();
-        } else {
-            alert('Error creating note: ' + result.error);
-        }
+        location.reload();
+        
     })
-    .catch(error => console.error('Error:', error));
 });

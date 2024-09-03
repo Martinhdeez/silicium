@@ -11,31 +11,27 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 header("Access-Control-Allow-Origin: http://localhost/silicium"); 
 header("Access-Control-Allow-Credentials: true");
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-error_log("Script iniciado"); // Para depurar
-
 // Inicializar la base de datos y el controlador
 $db = new Db();
 $notesController = new NotesController($db->connect());
 
 
 $method = $_SERVER['REQUEST_METHOD'];
-$note_id = isset($_GET['id']) ? intval($_GET['id']) : null;
+//$note_id = isset($_GET['id']) ? intval($_GET['id']) : null;
+$note_id = isset($_GET['id']) ? $_GET['id'] : null;
 
-
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-} else {
-    echo json_encode(array('error'=> 'USER ID NOT FOUND'));
-    exit;
-}
+// if (isset($_SESSION['user_id'])) {
+//     $user_id = $_SESSION['user_id'];
+// } else {
+//     echo json_encode(array('error'=> 'USER ID NOT FOUND'));
+//     exit;
+// }
+$user_id = 3;
 
 
 // Manejar las solicitudes según el método HTTP
 switch ($method) {
+    
     case 'GET':
         if ($note_id) {
             $result = $notesController->getNote($user_id, $note_id);

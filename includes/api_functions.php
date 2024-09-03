@@ -19,6 +19,7 @@ function getNotes() {
         return null;
     }
     curl_close($ch);
+    print_r($response);
     return json_decode($response, true);
 
 }
