@@ -1,6 +1,5 @@
 <?php
-session_start();
-
+require_once "../auth/auth.php";
 require_once "../config/db.php";
 require_once "../controllers/api/NotesController.php";
 
@@ -34,7 +33,7 @@ if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 } else {
     echo json_encode(array('error'=> 'USER ID NOT FOUND'));
-    exit; // Asegúrate de salir si no hay user_id
+    exit;
 }
 
 error_log("User ID: " . $user_id); // Para depurar
