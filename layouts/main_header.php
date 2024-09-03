@@ -16,6 +16,3 @@
     
         </nav>
     </div>
-    <aside>
-        
-    </aside>

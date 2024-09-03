@@ -17,7 +17,7 @@ class Db{
             $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
             // Establecer el modo de error de PDO para que lance excepciones
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully";
+            //echo "Connected successfully";
             
         } catch(PDOException $e) {
             // Si ocurre un error, captura la excepción y muestra un mensaje de error
