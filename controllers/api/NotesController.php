@@ -1,5 +1,5 @@
 <?php
-require_once "../../config/db.php";
+//require_once "../../config/db.php";
 
 class NotesController {
     
@@ -11,6 +11,7 @@ class NotesController {
 
     public function getAllNotes($user_id){
         try {
+
             $stmt = $this->db->prepare("SELECT * FROM notes WHERE user_id = ?");
             $stmt->execute([$user_id]);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -24,12 +25,19 @@ class NotesController {
         try {
             $stmt = $this->db->prepare("SELECT * FROM notes WHERE user_id = ? AND id = ?");
             $stmt->execute([$user_id, $note_id]);
-            return $stmt->fetch(PDO::FETCH_ASSOC); // Para un único registro
+            $note = $stmt->fetch(PDO::FETCH_ASSOC); 
             
+            // Verifica si se obtuvo una nota
+            if ($note) {
+                return $note; 
+            } else {
+                return ['error' => 'Nota no encontrada.']; 
+            }
         } catch (PDOException $e) {
             return ['error' => $e->getMessage()];
         }
     }
+    
 
     public function createNote($user_id, $data){
         try {
