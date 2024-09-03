@@ -44,6 +44,6 @@ if (isset($_GET["id"])) {
 </div>
 
 <script src="../public/js/newNote.js"></script>
-scri
+<script src = "../public/js/editNote.js"></script>
 </body>
 </html>
