@@ -21,14 +21,11 @@ error_log("Script iniciado"); // Para depurar
 $db = new Db();
 $notesController = new NotesController($db->connect());
 
-// Obtener el método HTTP y el note_id si está presente
+
 $method = $_SERVER['REQUEST_METHOD'];
 $note_id = isset($_GET['id']) ? intval($_GET['id']) : null;
 
-var_dump($_SESSION); // Para depurar
-error_log("Método: " . $method); // Para depurar
 
-// Obtener el user_id de la sesión, ya que el usuario está autenticado
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 } else {
@@ -36,7 +33,6 @@ if (isset($_SESSION['user_id'])) {
     exit;
 }
 
-error_log("User ID: " . $user_id); // Para depurar
 
 // Manejar las solicitudes según el método HTTP
 switch ($method) {

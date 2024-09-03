@@ -31,16 +31,19 @@ if (isset($_GET["id"])) {
 <div>
     <h1>Silicium</h1>
     <h3>Hello <?= htmlspecialchars($_SESSION['username']).' with id = '. htmlspecialchars($_SESSION['user_id']) ?></h3>
-<?php
-        if ($selectedNote) {
-            echo '<h2>' . htmlspecialchars($selectedNote['title']) . '</h2>';
-            echo '<p>' . nl2br(htmlspecialchars($selectedNote['note'])) . '</p>';
-        } else {
-            echo '<p>Seleccione una nota para verla.</p>';
-        }
-        ?>
+    <?php if ($selectedNote): ?>
+        <form id="NoteForm">
+            <input type="hidden" name="id" value="<?= htmlspecialchars($selectedNote['id']) ?>">
+            <input type="text" name="title" value="<?= htmlspecialchars($selectedNote['title']) ?>" placeholder="Title" required>
+            <textarea name="note" placeholder="Your note here..." required><?= htmlspecialchars($selectedNote['note']) ?></textarea>
+            <button type="submit">Save</button>
+        </form>
+    <?php else: ?>
+        <p>Seleccione una nota para verla.</p>
+    <?php endif; ?>
 </div>
 
 <script src="../public/js/newNote.js"></script>
+scri
 </body>
 </html>
