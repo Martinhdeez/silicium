@@ -348,4 +348,37 @@ body {
     color: #FFFFFF;
 }
 
-  
+/* Estilo para el mensaje de éxito */
+.success-message {
+    font-size: 26px; /* Tamaño grande del texto */
+    font-weight: bold; /* Texto en negrita */
+    color: #C6C6C6; /* Color claro para el texto */
+    background-color: #3B3B3B; /* Fondo oscuro para resaltar el mensaje */
+    border: 2px solid #575757; /* Borde gris oscuro alrededor del mensaje */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 15px; /* Espacio interno */
+    margin: 20px 0; /* Espacio superior e inferior */
+    text-align: center; /* Centra el texto */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Sombra para el efecto de profundidad */
+}
+
+/* Estilo para el saludo y el nombre del usuario */
+.welcome-message {
+    font-size: 24px; /* Tamaño del texto del saludo */
+    color: #C6C6C6; /* Color claro para el texto */
+    text-align: center; /* Centra el texto */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.username {
+    font-size: 26px; /* Tamaño del texto del nombre de usuario */
+    font-weight: bold; /* Texto en negrita */
+    color: #4CAF50; /* Color verde claro para el nombre de usuario */
+    display: inline; /* Mantiene el nombre de usuario en la misma línea que el saludo */
+}
+
+/* Estilo para el saludo en combinación con el nombre del usuario */
+.welcome-message span {
+    color: #4CAF50; /* Color verde claro para resaltar el nombre de usuario */
+}
+

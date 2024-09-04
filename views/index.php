@@ -93,7 +93,9 @@ require_once "../layouts/main_header.php";
                 <button type="submit" name="delete" class="delete-button">Delete this note</button>
             </form>
         <?php else: ?>
-            <?= htmlspecialchars($_SESSION['success']); ?>
+            <div class="success-message">
+                <?= htmlspecialchars($_SESSION['success']); ?>
+            </div>
             <p class="no-note-selected">Select the note to see it</p>
         <?php endif; ?>
     </div>
