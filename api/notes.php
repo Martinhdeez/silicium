@@ -1,7 +1,7 @@
 <?php
 require_once "../auth/auth.php";
 require_once "../config/db.php";
-require_once "../controllers/api/NotesController.php";
+
 
 // Configuración de cabeceras para permitir solicitudes desde cualquier origen (CORS)
 header("Content-Type: application/json; charset=UTF-8");

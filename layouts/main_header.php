@@ -11,7 +11,7 @@
             <!--Logo App-->
             <h2>Silicium</h2>
     <!--aqui quiero un logo de usuario y una flechita para abajo que despliegue estos dos enlaces-->
-        <a href="#">Profile</a>    
+        <a href="../views/profile.php">Profile</a>    
         <a href="../controllers/id/logout.php">Logout</a>
     
         </nav>
