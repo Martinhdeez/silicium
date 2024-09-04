@@ -2,7 +2,7 @@
 
 require_once "../auth/auth.php";
 require_once "../config/db.php";
-
+require_once "../includes/api_functions.php";
 
 $db = new Db();
 
@@ -21,11 +21,11 @@ if (isset($_POST['create'])) {
 
 //Read
 
-//$notes = $db->getAllNotes($user_id);
+$notes = $db->getAllNotes($user_id);
 
-$baseURL="http://localhost/silicium/api/notes.php/$user_id";
+// $baseURL="http://localhost/silicium/api/notes.php/$user_id";
 
-
+// $notes = getNotes($baseURL);
 
 $selectedNote = null;
 if (isset($_GET["id"])) {

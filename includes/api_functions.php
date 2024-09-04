@@ -2,7 +2,7 @@
 
 //funcion notas GET
 function getNotes($baseURL) {
-    
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $baseURL);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -15,7 +15,6 @@ function getNotes($baseURL) {
         return null;
     }
     curl_close($ch);
-    print_r($response);
     return json_decode($response, true);
 
 }
