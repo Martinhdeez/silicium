@@ -1,6 +1,7 @@
 <?php
 require_once "../auth/auth.php";
 require_once "../config/db.php";
+require_once "../includes/functions.php";
 
 $db = new Db();
 
@@ -16,9 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $user =$db->updateUser($username, $email , $password,  $user_id);
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+    $user =$db->updateUser($username, $email , $hashed_password,  $user_id);
 
     $_SESSION['username'] = $username;
+    $_SESSION['success'] = 'User updated successfully';
 
     // Redirige a la misma página para mostrar los cambios
     header("Location: profile.php");
@@ -36,7 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <h1>Profile</h1>
-
+    
+    <?php success(); ?>
     <form action="profile.php" method="POST">
         <div>
             <label for="username">Username:</label>
