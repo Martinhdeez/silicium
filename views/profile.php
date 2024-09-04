@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-    $user =$db->updateUser($username, $email , $hashed_password,  $user_id);
+    $user = $db->updateUser($username, $email, $hashed_password, $user_id);
 
     $_SESSION['username'] = $username;
     $_SESSION['success'] = 'User updated successfully';
@@ -27,42 +27,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: profile.php");
     exit();
 }
+
+require_once "../layouts/main_header.php";
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Agrega tu propio CSS aquí -->
-</head>
-<body>
-    <h1>Profile</h1>
+<main class="profile-content">
     
+    <div id="section">
+    <h1 class="profile-title">User Profile</h1>
     <?php success(); ?>
-    <form action="profile.php" method="POST">
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" value="<?= htmlspecialchars($user['username']) ?>" required>
-        </div>
+        <section class="profile-info">
+            <img class="profile-avatar" src="../public/img/user-icon.webp" alt="User Avatar">
+            <div class="profile-details">
+                <form action="profile.php" method="POST">
+                    <div class="input">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username"
+                            value="<?= htmlspecialchars($user['username']) ?>" required>
+                    </div>
 
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required>
-        </div>
+                    <div class="input">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>"
+                            required>
+                    </div>
 
-        <div>
-            <label for="password">New password :</label>
-            <input type="password" id="password" name="password">
-        </div>
+                    <div class="input">
+                        <label for="password">New password :</label>
+                        <input type="password" id="password" name="password">
+                    </div>
 
-        <div>
-            <button type="submit">Save changes</button>
-        </div>
-        <div>
-            <a href="index.php">Back to notes</a>
-        </div>
-    </form>
+                    <div>
+                        <button type="submit" class="edit-profile-button">Save changes</button>
+                    </div>
+                    <div>
+                        <a href="index.php">Back to notes</a>
+                    </div>
+                </form>
+        </section>
+    </div>
+</main>
 </body>
+
 </html>

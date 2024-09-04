@@ -1,0 +1,170 @@
+/* Contenedor del formulario de registro */
+.register-container {
+    display: flex;
+    justify-content: center; /* Centra el formulario horizontalmente */
+    align-items: center; /* Centra el formulario verticalmente */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: #1E1E1E; /* Color de fondo oscuro */
+    padding: 20px;
+}
+
+/* Estilo para el formulario de registro */
+.register-form {
+    background-color: #2E2E2E; /* Fondo del formulario */
+    color: #C6C6C6; /* Color del texto */
+    padding: 20px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para el efecto de profundidad */
+    width: 100%;
+    max-width: 400px; /* Máximo ancho del formulario */
+    box-sizing: border-box; /* Incluye padding y border en el width total */
+}
+
+/* Título del formulario */
+.register-title {
+    font-size: 24px; /* Tamaño del texto del título */
+    margin-bottom: 20px; /* Espacio inferior */
+    text-align: center; /* Centra el título */
+}
+
+/* Estilo para los grupos de formulario */
+.form-group {
+    margin-bottom: 15px; /* Espacio inferior entre los campos */
+}
+
+/* Estilo para las etiquetas del formulario */
+.form-group label {
+    display: block; /* Hace que la etiqueta ocupe toda la línea */
+    font-size: 14px; /* Tamaño del texto de la etiqueta */
+    margin-bottom: 5px; /* Espacio inferior */
+    color: #C6C6C6; /* Color del texto */
+}
+
+/* Estilo para los campos de entrada del formulario */
+.form-input {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 10px; /* Espacio interno */
+    font-size: 16px; /* Tamaño del texto */
+    background-color: #3B3B3B; /* Fondo del campo de entrada */
+    color: #C6C6C6; /* Color del texto */
+    border: 1px solid #575757; /* Borde del campo de entrada */
+    border-radius: 5px; /* Bordes redondeados */
+    box-sizing: border-box; /* Incluye padding y border en el width total */
+}
+
+/* Estilo para el botón de registro */
+.register-button {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 10px; /* Espacio interno */
+    font-size: 16px; /* Tamaño del texto */
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: #FFFFFF; /* Color del texto del botón */
+    border: none; /* Elimina el borde predeterminado */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición para el color de fondo */
+}
+
+.register-button:hover {
+    background-color: #45A049; /* Color de fondo cuando se pasa el cursor sobre el botón */
+}
+
+/* Estilo para el enlace de inicio de sesión */
+.login-link {
+    display: block; /* Hace que el enlace ocupe toda la línea */
+    margin-top: 15px; /* Espacio superior */
+    text-align: center; /* Centra el texto del enlace */
+    color: #C6C6C6; /* Color del texto del enlace */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+.login-link:hover {
+    text-decoration: underline; /* Subraya el enlace cuando se pasa el cursor sobre él */
+}
+/* Contenedor del formulario de inicio de sesión */
+.login-container {
+    display: flex;
+    justify-content: center; /* Centra el formulario horizontalmente */
+    align-items: center; /* Centra el formulario verticalmente */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: #1E1E1E; /* Color de fondo oscuro */
+    padding: 20px;
+}
+
+/* Estilo para el formulario de inicio de sesión */
+.login-form {
+    background-color: #2E2E2E; /* Fondo del formulario */
+    color: #C6C6C6; /* Color del texto */
+    padding: 20px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para el efecto de profundidad */
+    width: 100%;
+    max-width: 400px; /* Máximo ancho del formulario */
+    box-sizing: border-box; /* Incluye padding y border en el width total */
+}
+
+/* Título del formulario */
+.login-title {
+    font-size: 24px; /* Tamaño del texto del título */
+    margin-bottom: 20px; /* Espacio inferior */
+    text-align: center; /* Centra el título */
+}
+
+/* Estilo para los grupos de entrada */
+.input-group {
+    display: flex;
+    align-items: center; /* Alinea los elementos verticalmente */
+    margin-bottom: 15px; /* Espacio inferior entre los campos */
+}
+
+/* Estilo para los íconos de entrada */
+.input-icon {
+    margin-right: 10px; /* Espacio a la derecha del ícono */
+}
+
+.input-icon img {
+    width: 24px; /* Tamaño del ícono */
+    height: 24px;
+}
+
+/* Estilo para los campos de entrada del formulario */
+.form-input {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 10px; /* Espacio interno */
+    font-size: 16px; /* Tamaño del texto */
+    background-color: #3B3B3B; /* Fondo del campo de entrada */
+    color: #C6C6C6; /* Color del texto */
+    border: 1px solid #575757; /* Borde del campo de entrada */
+    border-radius: 5px; /* Bordes redondeados */
+    box-sizing: border-box; /* Incluye padding y border en el width total */
+}
+
+/* Estilo para el botón de inicio de sesión */
+.login-button {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 10px; /* Espacio interno */
+    font-size: 16px; /* Tamaño del texto */
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: #FFFFFF; /* Color del texto del botón */
+    border: none; /* Elimina el borde predeterminado */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición para el color de fondo */
+}
+
+.login-button:hover {
+    background-color: #45A049; /* Color de fondo cuando se pasa el cursor sobre el botón */
+}
+
+/* Estilo para el enlace de registro */
+.register-link {
+    display: block; /* Hace que el enlace ocupe toda la línea */
+    margin-top: 15px; /* Espacio superior */
+    text-align: center; /* Centra el texto del enlace */
+    color: #C6C6C6; /* Color del texto del enlace */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+.register-link:hover {
+    text-decoration: underline; /* Subraya el enlace cuando se pasa el cursor sobre él */
+}

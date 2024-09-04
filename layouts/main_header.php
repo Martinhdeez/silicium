@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sicilium</title>
     <link rel="stylesheet" href="../public/css/main_styles.css">
-</head>
+    <link rel="stylesheet" href="../public/css/profile.css">
 <body>
     <div>
         <nav>
             <!--Logo App-->
-            <h2>Silicium</h2>
+            <a href="../views/index.php" id="silicium"><img id="logo" src="../public/img/silicio.png" alt=""><h2>licium</h2></a>
             
             <!-- User profile dropdown -->
             <div class="user-menu">

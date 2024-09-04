@@ -91,7 +91,7 @@ body {
   
   /* Estilo general del aside */
   .sidebar {
-    width: 250px;
+    width: 15%;
     background-color: #1e1e1e;
     color: #c6c6c6;
     padding: 10px;
@@ -102,7 +102,7 @@ body {
     overflow-y: auto;
     flex-shrink: 0;
   }
-  
+
   /* Estilo para el botón de "New Note" */
   .new-note-form {
     margin-bottom: 20px;
@@ -177,12 +177,15 @@ body {
   .main-content {
     flex-grow: 1;
     padding: 20px;
+    padding-left: 50px;
+    padding-right: 100px;
     background-color: #2E2E2E;
     color: #C6C6C6;
     height: 100%;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    width: 85%;
   }
   
   /* Título de la aplicación */
@@ -281,4 +284,68 @@ body {
     text-align: center;
     margin-top: 20px;
   }
+
+ /* Estilo para el logo */
+#silicium {
+    display: flex;
+    align-items: center; /* Alinea verticalmente el logo y el texto */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: white; /* Color del texto del logo */
+}
+
+/* Estilo para la imagen del logo */
+#logo {
+    width: 40px; /* Ajusta el tamaño del logo según sea necesario */
+    margin-right: 3px; /* Espacio entre el logo y el texto */
+}
+
+/* Estilo para el texto del logo */
+#silicium h2 {
+    margin: 0; /* Elimina el margen predeterminado del h2 */
+    font-size: 24px; /* Tamaño del texto del logo */
+    margin-top: 8px;
+}
+
+/* Estilo para mensajes de éxito */
+.success {
+    background-color: #4CAF50; /* Verde oscuro para el éxito */
+    color: #FFFFFF; /* Texto blanco para el contraste */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #388E3C; /* Borde verde oscuro para mayor definición */
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Icono de éxito (opcional) */
+.success::before {
+    content: '✓'; /* Carácter de check para indicar éxito */
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+/* Estilo para mensajes de error */
+.error {
+    background-color: #F44336; /* Rojo oscuro para los errores */
+    color: #FFFFFF; /* Texto blanco para el contraste */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #D32F2F; /* Borde rojo oscuro para mayor definición */
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Icono de error (opcional) */
+.error::before {
+    content: '✗'; /* Carácter de cruz para indicar error */
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
   
