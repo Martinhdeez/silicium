@@ -8,6 +8,18 @@ $db = new Db();
 
 $user_id = $_SESSION['user_id'];
 
+
+//Create
+if(isset($_POST['create'])) {
+    $title = 'Untitled';
+    $note = '';
+    $data = ['title'=>$title, 'note'=> $note];
+
+    $newNote =$db->createNote($user_id,$data);
+
+}
+
+//Read
 $notes = $db->getAllNotes($user_id); 
 
 $selectedNote = null;
@@ -15,7 +27,8 @@ if (isset($_GET["id"])) {
     $selectedNote = $db->getNote($user_id, $_GET["id"]);
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//Update
+if (isset($_POST["update"])) {
     
     $note_id = $_POST['note_id'];
     $title = $_POST['title'];
@@ -23,8 +36,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = ['title'=>$title, 'note' => $note];
 
     $selectedNote = $db->updateNote($user_id, $note_id, $data);
+
     if (!$selectedNote) {
         echo 'Error uploading note';
+    }
+
+}
+
+//Delete
+if (isset($_POST["delete"])) {
+    $note_id = $_POST['note_id'];
+    
+    $isDeleted = $db->deleteNote($user_id, $note_id);
+    
+    if (!$isDeleted) {
+        echo 'Error deleting note';
     }
 }
 
@@ -33,7 +59,10 @@ require_once "../layouts/main_header.php";
 
 <!--BARRA LATERAL-->
 <aside>
-    <button id="createNoteBtn">New Note</button>
+    <form action="index.php"method ="POST" >
+        <!--Esto quiero que sea el logo de un '+' y si pones el raton encima, ponga New Note-->
+        <button type="submit" name="create">New Note</button>
+    </form>
      <?php
         if ($notes) {
             foreach ($notes as $note) {
@@ -55,8 +84,12 @@ require_once "../layouts/main_header.php";
         <form action="index.php" method ="POST">
             <input type="hidden" name="note_id" value="<?= htmlspecialchars($selectedNote['id']); ?>">
             <input type="text" name="title" value="<?= htmlspecialchars($selectedNote['title']) ?>" placeholder="Title" required>
-            <textarea name="note" placeholder="Your note here..." required><?= htmlspecialchars($selectedNote['note']) ?></textarea>
-            <button type="submit">Save</button>
+            <textarea name="note" placeholder="Your note here..."><?= htmlspecialchars($selectedNote['note']) ?></textarea>
+            <button type="submit" name="update">Save</button>
+        </form>
+        <form action="index.php" method="POST">
+            <input type="hidden" name="note_id" value="<?= htmlspecialchars($selectedNote['id']); ?>">
+            <button type="submit" name="delete">Delete this note</button>
         </form>
     <?php else: ?>
         <p>Select the note to see it</p>

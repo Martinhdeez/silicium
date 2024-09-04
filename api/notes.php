@@ -12,21 +12,21 @@ header("Access-Control-Allow-Origin: http://localhost/silicium");
 header("Access-Control-Allow-Credentials: true");
 
 // Inicializar la base de datos y el controlador
-$db = new Db();
-$notesController = new NotesController($db->connect());
+
+$notesController = new Db();
 
 
 $method = $_SERVER['REQUEST_METHOD'];
 //$note_id = isset($_GET['id']) ? intval($_GET['id']) : null;
 $note_id = isset($_GET['id']) ? $_GET['id'] : null;
 
-// if (isset($_SESSION['user_id'])) {
-//     $user_id = $_SESSION['user_id'];
-// } else {
-//     echo json_encode(array('error'=> 'USER ID NOT FOUND'));
-//     exit;
-// }
-$user_id = 3;
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+} else {
+    echo json_encode(array('error'=> 'USER ID NOT FOUND'));
+    exit;
+}
+
 
 
 // Manejar las solicitudes según el método HTTP
