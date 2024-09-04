@@ -20,7 +20,12 @@ if (isset($_POST['create'])) {
 }
 
 //Read
-$notes = $db->getAllNotes($user_id);
+
+//$notes = $db->getAllNotes($user_id);
+
+$baseURL="http://localhost/silicium/api/notes.php/$user_id";
+
+
 
 $selectedNote = null;
 if (isset($_GET["id"])) {
