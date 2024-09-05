@@ -1,35 +1,36 @@
+
 <?php
 
 require_once "../auth/auth.php";
-require_once "../config/db.php";
 require_once "../includes/api_functions.php";
-
-$db = new Db();
+require_once "../includes/functions.php";
 
 $user_id = $_SESSION['user_id'];
 
+$baseURL="http://localhost/silicium/api/notes.php/$user_id";
 
 //Create
 if (isset($_POST['create'])) {
+
     $title = 'Untitled';
     $note = '';
     $data = ['title' => $title, 'note' => $note];
 
-    $newNote = $db->createNote($user_id, $data);
-
+    $newNote = createNote($baseURL, $data);
+    if (!$newNote) {
+        $_SESSION['error']= 'Error creating new note';
+    }else{
+        $_SESSION['success'] = 'Note created successfully';
+    }
 }
 
 //Read
-
-$notes = $db->getAllNotes($user_id);
-
-// $baseURL="http://localhost/silicium/api/notes.php/$user_id";
-
-// $notes = getNotes($baseURL);
+$notes = getNotes($baseURL);
 
 $selectedNote = null;
 if (isset($_GET["id"])) {
-    $selectedNote = $db->getNote($user_id, $_GET["id"]);
+    $note_id = $_GET['id'];
+    $selectedNote = getNote($baseURL, $note_id);
 }
 
 //Update
@@ -40,22 +41,26 @@ if (isset($_POST["update"])) {
     $note = $_POST['note'];
     $data = ['title' => $title, 'note' => $note];
 
-    $selectedNote = $db->updateNote($user_id, $note_id, $data);
+    $selectedNote = updateNote($baseURL, $note_id, $data);
 
     if (!$selectedNote) {
-        echo 'Error uploading note';
+        $_SESSION['error']= 'Error updating note';
+    }else{
+        $_SESSION['success'] = 'Note updated successfully';
     }
-
 }
+
 
 //Delete
 if (isset($_POST["delete"])) {
     $note_id = $_POST['note_id'];
 
-    $isDeleted = $db->deleteNote($user_id, $note_id);
+    $isDeleted = deleteNote($baseURL, $note_id);
 
     if (!$isDeleted) {
-        echo 'Error deleting note';
+        $_SESSION['error']= 'Error deleting note';
+    }else{
+        $_SESSION['success'] = 'Note deleted successfully';
     }
 }
 
@@ -76,14 +81,13 @@ require_once "../layouts/main_header.php";
                 echo '</div>';
             }
         } else {
-            echo '<p class="no-notes">No se encontraron notas.</p>';
+            echo '<p class="no-notes">Notes do not</p>';
         }
         ?>
     </aside>
     <!--CONTENIDO PRINCIPAL-->
     <div class="main-content">
         
-
         <?php if ($selectedNote): ?>
             <form action="index.php" method="POST" class="note-form">
                 <input type="hidden" name="note_id" value="<?= htmlspecialchars($selectedNote['id']); ?>">
@@ -99,8 +103,9 @@ require_once "../layouts/main_header.php";
             </form>
         <?php else: ?>
             <div class="success-message">
-                <?= htmlspecialchars($_SESSION['success']); ?>
+                <?= htmlspecialchars("Hello " .$_SESSION['username']. "!"); ?>
             </div>
+            <? success(); ?>
             <p class="no-note-selected">Select the note to see it</p>
         <?php endif; ?>
     </div>

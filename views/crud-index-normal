@@ -1,0 +1,58 @@
+<?php
+
+require_once "../auth/auth.php";
+require_once "../config/db.php";
+
+
+$db = new Db();
+
+$user_id = $_SESSION['user_id'];
+
+
+//Create
+if (isset($_POST['create'])) {
+    $title = 'Untitled';
+    $note = '';
+    $data = ['title' => $title, 'note' => $note];
+
+    $newNote = $db->createNote($user_id, $data);
+
+}
+
+//Read
+
+$notes = $db->getAllNotes($user_id);
+
+$selectedNote = null;
+if (isset($_GET["id"])) {
+    $selectedNote = $db->getNote($user_id, $_GET["id"]);
+}
+
+//Update
+if (isset($_POST["update"])) {
+
+    $note_id = $_POST['note_id'];
+    $title = $_POST['title'];
+    $note = $_POST['note'];
+    $data = ['title' => $title, 'note' => $note];
+
+    $selectedNote = $db->updateNote($user_id, $note_id, $data);
+
+    if (!$selectedNote) {
+        echo 'Error uploading note';
+    }
+
+}
+
+//Delete
+if (isset($_POST["delete"])) {
+    $note_id = $_POST['note_id'];
+
+    $isDeleted = $db->deleteNote($user_id, $note_id);
+
+    if (!$isDeleted) {
+        echo 'Error deleting note';
+    }
+}
+
+require_once "../layouts/main_header.php";

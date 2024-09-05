@@ -20,9 +20,8 @@ function getNotes($baseURL) {
 }
 
 // Función para obtener una nota específica por ID (GET)
-function getNote($id) {
+function getNote($baseURL, $id) {
     
-    global $baseURL;
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $baseURL . '?id=' . $id);
@@ -41,8 +40,7 @@ function getNote($id) {
 }
 
 // Función para crear una nueva nota (POST)
-function createNote($data) {
-    global $baseURL;
+function createNote($baseURL, $data) {
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $baseURL);
@@ -65,9 +63,8 @@ function createNote($data) {
 }
 
 // Función para actualizar una nota existente por ID (PUT)
-function updateNote($id, $data) {
-    global $baseURL;
-
+function updateNote($baseURL, $id, $data) {
+    
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $baseURL . '?id=' . $id);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
@@ -88,8 +85,7 @@ function updateNote($id, $data) {
 }
 
 // Función para eliminar una nota por ID (DELETE)
-function deleteNote($id) {
-    global $baseURL;
+function deleteNote($baseURL, $id) {
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $baseURL . '?id=' . $id);
