@@ -32,7 +32,7 @@ if (isset($_POST['login_submit'])) {
             // Almacenar datos en sesión
             $_SESSION['user_id'] = $user->id;
             $_SESSION['username'] = $user->username;
-            $_SESSION['success'] = 'Hello, '.$_SESSION['username'].'';
+            $_SESSION['success'] = 'Login successfully';
             // Redirigir al usuario a la página de inicio
             header("Location: ../../views/index.php");
             exit();

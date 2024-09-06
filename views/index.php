@@ -47,6 +47,9 @@ if (isset($_POST["update"])) {
         $_SESSION['error']= 'Error updating note';
     }else{
         $_SESSION['success'] = 'Note updated successfully';
+
+        header("Location: " . $_SERVER['PHP_SELF'] . "?id=" . $note_id);
+        exit();
     }
 }
 
@@ -61,16 +64,19 @@ if (isset($_POST["delete"])) {
         $_SESSION['error']= 'Error deleting note';
     }else{
         $_SESSION['success'] = 'Note deleted successfully';
+
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
     }
 }
 
 require_once "../layouts/main_header.php";
 ?>
+
 <div class="container">
     <!--BARRA LATERAL-->
-    <aside class="sidebar">
+    <aside class="sidebar" id="aside">
         <form action="index.php" method="POST" class="new-note-form">
-            <!--Logo de un '+' con tooltip de "New Note"-->
             <button type="submit" name="create" class="new-note-button" title="New Note">+</button>
         </form>
         <?php
@@ -85,9 +91,12 @@ require_once "../layouts/main_header.php";
         }
         ?>
     </aside>
+ 
     <!--CONTENIDO PRINCIPAL-->
     <div class="main-content">
-        
+    <div id="menu-btn" style="cursor: pointer;">
+        <i class="fas fa-bars" id="bar" style="color: white; margin-left: -40px; cursor: pointer;"></i>
+    </div>
         <?php if ($selectedNote): ?>
             <form action="index.php" method="POST" class="note-form">
                 <input type="hidden" name="note_id" value="<?= htmlspecialchars($selectedNote['id']); ?>">
@@ -105,10 +114,32 @@ require_once "../layouts/main_header.php";
             <div class="success-message">
                 <?= htmlspecialchars("Hello " .$_SESSION['username']. "!"); ?>
             </div>
-            <? success(); ?>
+            <?php success(); ?>
             <p class="no-note-selected">Select the note to see it</p>
         <?php endif; ?>
     </div>
 </div>
+<script>
 
+document.getElementById('menu-btn').addEventListener('click', function() {
+    var aside = document.getElementById('aside');
+    
+    if (aside) {
+        if (aside.classList.contains('hidden')) {
+            aside.classList.remove('hidden'); 
+            aside.style.display = 'flex'; 
+            console.log('Aside is now visible');
+        } else {
+            aside.classList.add('hidden');
+            aside.style.display = 'none';
+            console.log('Aside is now hidden');
+        }
+    } else {
+        console.log('Aside element not found');
+    }
+});
+
+
+</script>
+</body>
 </html>

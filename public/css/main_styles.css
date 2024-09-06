@@ -382,3 +382,6 @@ body {
     color: #4CAF50; /* Color verde claro para resaltar el nombre de usuario */
 }
 
+.hidden {
+  display: none !important;
+}
