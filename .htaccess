@@ -1,9 +1,0 @@
-# .htaccess
-
-RewriteEngine On
-RewriteBase /
-
-# Redirigir todas las solicitudes a router.php
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /controllers/api/router.php [QSA,L]

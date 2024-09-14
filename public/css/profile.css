@@ -1,0 +1,102 @@
+/* Estilo para el contenido principal de la página de perfil */
+.profile-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #1E1E1E; /* Fondo oscuro similar a Obsidian */
+    color: #C6C6C6; /* Texto en gris claro */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#section{
+    margin-left: 15%;
+    margin-right: 25%;
+    margin-top: 3%;
+}
+/* Título del perfil */
+.profile-title {
+    font-size: 36px;
+    color: #FFFFFF; /* Color blanco para el título */
+    margin-bottom: 20px;
+}
+
+/* Sección de información del perfil */
+.profile-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #3B3B3B; /* Borde oscuro para resaltar el avatar */
+}
+
+.profile-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilos para el formulario de perfil */
+.profile-details form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile-details label {
+    font-size: 16px;
+    color: #C6C6C6;
+}
+
+.profile-details input[type="text"],
+.profile-details input[type="email"],
+.profile-details input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #2E2E2E;
+    color: #C6C6C6;
+    border: 1px solid #575757;
+    border-radius: 5px;
+}
+
+.profile-details input[type="text"]::placeholder,
+.profile-details input[type="email"]::placeholder,
+.profile-details input[type="password"]::placeholder {
+    color: #8F8F8F;
+}
+
+/* Botón de guardar cambios */
+.edit-profile-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Color verde para el botón */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* Alinea el botón al inicio del contenedor */
+}
+
+.edit-profile-button:hover {
+    background-color: #45A049; /* Verde más oscuro al pasar el ratón */
+}
+
+/* Enlace de "Back to notes" */
+.profile-details a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.profile-details a:hover {
+    text-decoration: underline;
+}

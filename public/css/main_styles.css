@@ -1,0 +1,387 @@
+/* Estilo general del body */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Estilo para el contenedor de navegación */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  /* Contenedor principal que agrupa el aside y el contenido principal */
+  .container {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 60px); /* Ajuste para que ocupe todo el espacio restante debajo del nav */
+    overflow: hidden;
+  }
+  
+  /* Estilo para el logo */
+  nav h2 {
+    margin: 0;
+  }
+  
+  /* Contenedor del perfil del usuario */
+  .user-menu {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Estilo para el ícono de usuario y flechita */
+  .user-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+
+  #logout{
+    color: red;
+  }
+
+  .user-icon img {
+    width: 80px;
+    border-radius: 50%;
+  }
+  
+  .user-icon .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid white;
+  }
+  
+  /* Estilo para el dropdown (oculto por defecto) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Mostrar el dropdown al hacer hover */
+  .user-menu:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Estilo general del aside */
+  .sidebar {
+    width: 15%;
+    background-color: #1e1e1e;
+    color: #c6c6c6;
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #3b3b3b;
+    overflow-y: auto;
+    flex-shrink: 0;
+  }
+
+  /* Estilo para el botón de "New Note" */
+  .new-note-form {
+    margin-bottom: 20px;
+  }
+  
+  .new-note-button {
+    background-color: #3b3b3b;
+    color: #c6c6c6;
+    font-size: 24px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+  
+  .new-note-button:hover {
+    background-color: #575757;
+  }
+  
+  .new-note-button::after {
+    content: attr(title);
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .new-note-button:hover::after {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Estilo para los elementos de nota */
+  .note-item {
+    margin-bottom: 10px;
+  }
+  
+  .note-link {
+    text-decoration: none;
+    color: #c6c6c6;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .note-link:hover {
+    background-color: #575757;
+    color: #fff;
+  }
+  
+  /* Estilo para el mensaje cuando no hay notas */
+  .no-notes {
+    color: #8f8f8f;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Estilo general para el contenido principal */
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 100px;
+    background-color: #2E2E2E;
+    color: #C6C6C6;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+  }
+  
+  /* Título de la aplicación */
+  .app-title {
+    font-size: 36px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+  }
+  
+  /* Mensaje de bienvenida */
+  .welcome-message {
+    font-size: 18px;
+    color: #C6C6C6;
+    margin-bottom: 30px;
+  }
+  
+  /* Estilos para el formulario de notas */
+  .note-form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .note-title-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #3B3B3B;
+    color: #C6C6C6;
+    border: 1px solid #575757;
+    border-radius: 5px;
+  }
+  
+  .note-title-input::placeholder {
+    color: #8F8F8F;
+  }
+  
+  .note-textarea {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #3B3B3B;
+    color: #C6C6C6;
+    border: 1px solid #575757;
+    border-radius: 5px;
+    resize: none;
+  }
+  
+  .note-textarea::placeholder {
+    color: #8F8F8F;
+  }
+  
+  /* Botón de guardar */
+  .save-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+  }
+  
+  .save-button:hover {
+    background-color: #45A049;
+  }
+  
+  /* Formulario y botón de eliminar */
+  .delete-form {
+    margin-top: 10px;
+  }
+  
+  .delete-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #F44336;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-button:hover {
+    background-color: #E53935;
+  }
+  
+  /* Mensaje cuando no hay una nota seleccionada */
+  .no-note-selected {
+    font-size: 18px;
+    color: #8F8F8F;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+ /* Estilo para el logo */
+#silicium {
+    display: flex;
+    align-items: center; /* Alinea verticalmente el logo y el texto */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: white; /* Color del texto del logo */
+}
+
+/* Estilo para la imagen del logo */
+#logo {
+    width: 40px; /* Ajusta el tamaño del logo según sea necesario */
+    margin-right: 3px; /* Espacio entre el logo y el texto */
+}
+
+/* Estilo para el texto del logo */
+#silicium h2 {
+    margin: 0; /* Elimina el margen predeterminado del h2 */
+    font-size: 24px; /* Tamaño del texto del logo */
+    margin-top: 8px;
+}
+
+/* Estilo para mensajes de éxito */
+.success {
+    background-color: #4CAF50; /* Verde oscuro para el éxito */
+    color: #FFFFFF; /* Texto blanco para el contraste */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #388E3C; /* Borde verde oscuro para mayor definición */
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Icono de éxito (opcional) */
+.success::before {
+    content: '✓'; /* Carácter de check para indicar éxito */
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+/* Estilo para mensajes de error */
+.error {
+    background-color: #F44336; /* Rojo oscuro para los errores */
+    color: #FFFFFF; /* Texto blanco para el contraste */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #D32F2F; /* Borde rojo oscuro para mayor definición */
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Icono de error (opcional) */
+.error::before {
+    content: '✗'; /* Carácter de cruz para indicar error */
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+/* Estilo para el mensaje de éxito */
+.success-message {
+    font-size: 26px; /* Tamaño grande del texto */
+    font-weight: bold; /* Texto en negrita */
+    color: #C6C6C6; /* Color claro para el texto */
+    background-color: #3B3B3B; /* Fondo oscuro para resaltar el mensaje */
+    border: 2px solid #575757; /* Borde gris oscuro alrededor del mensaje */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 15px; /* Espacio interno */
+    margin: 20px 0; /* Espacio superior e inferior */
+    text-align: center; /* Centra el texto */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Sombra para el efecto de profundidad */
+}
+
+/* Estilo para el saludo y el nombre del usuario */
+.welcome-message {
+    font-size: 24px; /* Tamaño del texto del saludo */
+    color: #C6C6C6; /* Color claro para el texto */
+    text-align: center; /* Centra el texto */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.username {
+    font-size: 26px; /* Tamaño del texto del nombre de usuario */
+    font-weight: bold; /* Texto en negrita */
+    color: #4CAF50; /* Color verde claro para el nombre de usuario */
+    display: inline; /* Mantiene el nombre de usuario en la misma línea que el saludo */
+}
+
+/* Estilo para el saludo en combinación con el nombre del usuario */
+.welcome-message span {
+    color: #4CAF50; /* Color verde claro para resaltar el nombre de usuario */
+}
+
+.hidden {
+  display: none !important;
+}
